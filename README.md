@@ -8,7 +8,7 @@ So these pre-built wheels serve as a way to install PocketSphinx on newer versio
 
 ### Contents
 
-#### aarch64.zip
+#### aarch64
 
 | Python Version | manylinux2014 | manylinux2_24 |
 |----------------|---------------|---------------|
@@ -18,11 +18,11 @@ So these pre-built wheels serve as a way to install PocketSphinx on newer versio
 | 3.9            | Yes           | Yes           |
 | 3.10.0b1       | Yes           | Yes           |
 
-#### armv7l.zip
+#### armv7l
 
 Has wheels for Python 3.7, 3.8 and 3.9. None of them are `manylinux` wheels.
 
-#### i686.zip (Linux)
+#### i686 (Linux)
 
 | Python Version | manylinux2014 | manylinux2_24 |
 |----------------|---------------|---------------|
@@ -32,15 +32,15 @@ Has wheels for Python 3.7, 3.8 and 3.9. None of them are `manylinux` wheels.
 | 3.9            | Yes           | Yes           |
 | 3.10.0b1       | Yes           | Yes           |
 
-#### win_amd64.zip
+#### win_amd64
 
 Has wheels for Python 3.6, 3.7, 3.8, 3.9 and 3.10.0b1.
 
-#### win32.zip
+#### win32
 
 Has wheels for Python 3.6, 3.7, 3.8 and 3.9.
 
-#### x86_64.zip (Linux)
+#### x86_64 (Linux)
 
 | Python Version | manylinux2014 | manylinux2_24 |
 |----------------|---------------|---------------|
