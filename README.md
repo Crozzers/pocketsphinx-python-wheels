@@ -66,5 +66,12 @@ Run `pip3 install --upgrade pocketsphinx` to ensure you are on the latest versio
 Profit!
 
 
+### How to build wheels
+Download docker and run the [pypa manylinux docker containers](https://github.com/pypa/manylinux#docker-images) for each arch you wish
+to build for. One inside the container download the [build-manylinux-wheel.sh](https://github.com/Crozzers/pocketsphinx-python-wheels/raw/master/build-manylinux-wheel.sh)
+script from this repo and run it. It should download all the required tools to build the wheels and build wheels for every python version installed
+on that container.
+
+
 ### Am I missing some wheels?
 Yes. I am missing some wheels. I will add wheels as I go. However, [this website](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pocketsphinx) has many Windows wheels, should you need them. 
