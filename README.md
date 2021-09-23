@@ -18,10 +18,6 @@ So these pre-built wheels serve as a way to install PocketSphinx on newer versio
 | 3.9            | Yes           | Yes           |
 | 3.10.0b1       | Yes           | Yes           |
 
-#### armv7l
-
-Has wheels for Python 3.7, 3.8 and 3.9. None of them are `manylinux` wheels.
-
 #### i686 (Linux)
 
 | Python Version | manylinux2014 | manylinux2_24 |
@@ -31,14 +27,6 @@ Has wheels for Python 3.7, 3.8 and 3.9. None of them are `manylinux` wheels.
 | 3.8            | Yes           | Yes           |
 | 3.9            | Yes           | Yes           |
 | 3.10.0b1       | Yes           | Yes           |
-
-#### win_amd64
-
-Has wheels for Python 3.6, 3.7, 3.8, 3.9 and 3.10.0b1.
-
-#### win32
-
-Has wheels for Python 3.6, 3.7, 3.8 and 3.9.
 
 #### x86_64 (Linux)
 
@@ -54,24 +42,17 @@ Has wheels for Python 3.6, 3.7, 3.8 and 3.9.
 ### How to install
 Download the .whl file corresponding to your OS and python version. They are usually named as such:  
 
-    pocketsphinx-[version number]-cp3[python minor version]-cp3[python minor version]-[OS]-[CPU Architecture].whl  
+    pocketsphinx-0.1.15-cp3[python minor version]-cp3[python minor version]-[OS]-[CPU Architecture].whl  
 
 
-So the wheel for Python 3.8 on Windows 64 bit would be called:  
-
-
-    pocketsphinx-0.1.15-cp38-cp38-win_amd64.whl
+So the wheel for Python 3.8 on Windows 64 bit would be called `pocketsphinx-0.1.15-cp38-cp38-win_amd64.whl`  
 Next run `pip3 install path/to/the/whl/file/file.whl`  
 Run `pip3 install --upgrade pocketsphinx` to ensure you are on the latest version  
 Profit!
 
 
-### How to build wheels
+### How to build manylinux wheels
 Download docker and run the [pypa manylinux docker containers](https://github.com/pypa/manylinux#docker-images) for each arch you wish
 to build for. One inside the container download the [build-manylinux-wheel.sh](https://github.com/Crozzers/pocketsphinx-python-wheels/raw/master/build-manylinux-wheel.sh)
 script from this repo and run it. It should download all the required tools to build the wheels and build wheels for every python version installed
 on that container.
-
-
-### Am I missing some wheels?
-Yes. I am missing some wheels. I will add wheels as I go. However, [this website](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pocketsphinx) has many Windows wheels, should you need them. 
