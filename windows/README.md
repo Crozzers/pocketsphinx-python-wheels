@@ -1,1 +1,1 @@
-Pocketsphinx wheels for windows can be found [here]((https://www.lfd.uci.edu/~gohlke/pythonlibs/#pocketsphinx))
+Pocketsphinx wheels for windows can be found [here](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pocketsphinx)
