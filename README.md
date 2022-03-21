@@ -10,14 +10,14 @@ So these pre-built wheels serve as a way to install PocketSphinx on newer versio
 
 | Python Version | aarch64       | i686          | ppc64le       | s390x         | x86_64        |
 |----------------|---------------|---------------|---------------|---------------|---------------|
-| 3.6            | Yes           | Yes           | No            | No            | Yes           |
-| 3.7            | Yes           | Yes           | No            | No            | Yes           |
-| PyPy 3.7       | Yes           | Yes           | No            | No            | Yes           |
-| 3.8            | Yes           | Yes           | No            | No            | Yes           |
-| PyPy 3.8       | Yes           | Yes           | No            | No            | Yes           |
-| 3.9            | Yes           | Yes           | No            | No            | Yes           |
-| PyPy 3.9       | Yes           | Yes           | No            | No            | Yes           |
-| 3.10           | Yes           | Yes           | No            | No            | Yes           |
+| 3.6            | Yes           | Yes           | Yes           | Yes           | Yes           |
+| 3.7            | Yes           | Yes           | Yes           | Yes           | Yes           |
+| PyPy 3.7       | Yes           | Yes           | Yes           | Yes           | Yes           |
+| 3.8            | Yes           | Yes           | Yes           | Yes           | Yes           |
+| PyPy 3.8       | Yes           | Yes           | Yes           | Yes           | Yes           |
+| 3.9            | Yes           | Yes           | Yes           | Yes           | Yes           |
+| PyPy 3.9       | Yes           | Yes           | Yes           | Yes           | Yes           |
+| 3.10           | Yes           | Yes           | Yes           | Yes           | Yes           |
 | 3.11.0a6       | No            | No            | No            | No            | No            |
 
 
