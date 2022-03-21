@@ -53,7 +53,12 @@ fi
 # download and extract pocketsphinx
 if [ ! -f "pocketsphinx-0.1.15.tar.gz" ];
 then
-	curl https://files.pythonhosted.org/packages/cd/4a/adea55f189a81aed88efa0b0e1d25628e5ed22622ab9174bf696dd4f9474/pocketsphinx-0.1.15.tar.gz > pocketsphinx-0.1.15.tar.gz
+	if [ -f "../pocketsphinx-0.1.15.tar.gz" ];
+	then
+		mv ../pocketsphinx-0.1.15.tar.gz ./
+	else
+		curl https://files.pythonhosted.org/packages/cd/4a/adea55f189a81aed88efa0b0e1d25628e5ed22622ab9174bf696dd4f9474/pocketsphinx-0.1.15.tar.gz > pocketsphinx-0.1.15.tar.gz
+	fi	
 fi
 tar -xvf pocketsphinx-0.1.15.tar.gz
 
