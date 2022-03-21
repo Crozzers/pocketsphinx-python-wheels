@@ -7,7 +7,7 @@
 
 
 # update package lists and install required build tools
-base_packages="swig wget autoconf automake make pulseaudio tk"
+base_packages="swig autoconf automake make pulseaudio tk"
 if [ $(command -v apt --version) ];
 then
 	apt update && apt install libasound2-dev libpulse-dev python3-dev $base_packages -y
@@ -53,7 +53,7 @@ fi
 # download and extract pocketsphinx
 if [ ! -f "pocketsphinx-0.1.15.tar.gz" ];
 then
-	wget https://files.pythonhosted.org/packages/cd/4a/adea55f189a81aed88efa0b0e1d25628e5ed22622ab9174bf696dd4f9474/pocketsphinx-0.1.15.tar.gz
+	curl https://files.pythonhosted.org/packages/cd/4a/adea55f189a81aed88efa0b0e1d25628e5ed22622ab9174bf696dd4f9474/pocketsphinx-0.1.15.tar.gz > pocketsphinx-0.1.15.tar.gz
 fi
 tar -xvf pocketsphinx-0.1.15.tar.gz
 
