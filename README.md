@@ -14,8 +14,11 @@ So these pre-built wheels serve as a way to install PocketSphinx on newer versio
 | 3.7            | Yes           | Yes           | No            | No            | Yes           |
 | PyPy 3.7       | Yes           | Yes           | No            | No            | Yes           |
 | 3.8            | Yes           | Yes           | No            | No            | Yes           |
+| PyPy 3.8       | Yes           | Yes           | No            | No            | Yes           |
 | 3.9            | Yes           | Yes           | No            | No            | Yes           |
-| 3.10.0         | Yes           | Yes           | No            | No            | Yes           |
+| PyPy 3.9       | Yes           | Yes           | No            | No            | Yes           |
+| 3.10           | Yes           | Yes           | No            | No            | Yes           |
+| 3.11.0a6       | No            | No            | No            | No            | No            |
 
 
 ### How to install
