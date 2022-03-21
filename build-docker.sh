@@ -8,7 +8,6 @@ done;
 
 arches=("x86_64" "aarch64" "i686" "ppc64le" "s390x");
 for arch in "${arches[@]}"; do
-    echo $arch;
     # pull the image
     image="quay.io/pypa/manylinux_2_24_$arch"
     docker pull $image;
