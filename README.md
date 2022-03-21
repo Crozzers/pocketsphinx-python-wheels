@@ -32,7 +32,7 @@ Profit!
 
 ### How to build manylinux wheels
 Download docker and run the [pypa manylinux docker containers](https://github.com/pypa/manylinux#docker-images) for each arch you wish
-to build for. One inside the container, run this command:  
+to build for. Once inside the container, run this command:  
 ```
 apt update && apt install wget -y && wget https://github.com/Crozzers/pocketsphinx-python-wheels/raw/master/build-manylinux-wheel.sh && bash build-manylinux-wheel.sh
 ```
@@ -40,3 +40,11 @@ If you are using a CentOS based container then swap `apt` for `yum`.
 This will download the [build-manylinux-wheel.sh](https://github.com/Crozzers/pocketsphinx-python-wheels/raw/master/build-manylinux-wheel.sh)
 script from this repo and run it. It should download all the required tools to build the wheels and automatically build wheels for every python version installed
 on that container.
+
+Alternatively, if you have docker installed and running, you can simply run the `build-docker.sh` script
+to automatically build wheels for all manylinux_2_24 arches.
+```
+mkdir build && cd build
+curl https://raw.githubusercontent.com/Crozzers/pocketsphinx-python-wheels/master/build-docker.sh > build-docker.sh
+sudo bash build-docker.sh
+```
