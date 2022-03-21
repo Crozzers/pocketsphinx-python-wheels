@@ -1,3 +1,14 @@
+declare -a all_containers;
+
+function cleanup(){
+    for c_id in "${all_containers}"; do
+        docker stop $c_id;
+    done;
+    exit;
+}
+
+trap cleanup SIGINT;
+
 required_files=("pocketsphinx-0.1.15.tar.gz" "build-manylinux-wheel.sh");
 for file in "${required_files[@]}"; do
     if [ ! -f  ];
@@ -12,13 +23,14 @@ for arch in "${arches[@]}"; do
     image="quay.io/pypa/manylinux_2_24_$arch"
     docker pull $image;
     # create the container and grab the ID
-    container_id=`docker run -it -d $image bash`;
+    container_id=`docker run --rm -it -d $image bash`;
+    all_containers+=($container_id);
     # place all required files in the container
     for file in "${required_files[@]}"; do
-        docker cp $file $container_id:$file;
+        docker cp $file $container_id:/$file;
     done;
     # build wheels
-    docker exec $container_id bash build-manylinux-wheel.sh;
+    docker exec $container_id bash -c "bash build-manylinux-wheel.sh";
     # extract build wheels from docker container
     mkdir -p $arch;
     for wheel in `docker exec $container_id bash -c "ls /pocketsphinx-build/wheelhouse"`; do
@@ -26,5 +38,4 @@ for arch in "${arches[@]}"; do
     done;
     # stop and remove the container
     docker stop $container_id;
-    docker rm $container_id;
 done;
