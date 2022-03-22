@@ -1,3 +1,4 @@
+#!/bin/bash
 declare -a all_containers;
 
 function cleanup(){
@@ -18,6 +19,7 @@ for file in "${required_files[@]}"; do
 done;
 
 arches=("x86_64" "aarch64" "i686" "ppc64le" "s390x");
+docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 for arch in "${arches[@]}"; do
     # pull the image
     image="quay.io/pypa/manylinux_2_24_$arch"
