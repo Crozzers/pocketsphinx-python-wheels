@@ -20,35 +20,10 @@ fi
 mkdir pocketsphinx-build -p && cd pocketsphinx-build
 
 # install required building wheels on all python versions and find latest python version
-latest_py_version=0
 for py_version in /opt/python/*
 do
 	$py_version/bin/python -m pip install wheel
-	# get version number and check if its bigger than current latest version
-	version_num=$(basename $py_version | grep -o '[0-9]*' | head -n 1)
-	if [[ latest_py_version -le $version_num ]];
-	then
-		latest_py_version=$version_num
-	fi
 done
-
-# check that we have a suitable version
-if [ $latest_py_version = 0 ];
-then
-	echo "No suitable python versions found"
-	exit 1
-elif [ $latest_py_version -le 36 ];
-then
-	echo "Earliest suported python is cp36, not cp$latest_py_version"
-	exit 1
-fi
-
-latest_py_dir="/opt/python/cp${latest_py_version}-cp${latest_py_version}"
-if [ ! -d $latest_py_dir ];
-then
-	# eg: /opt/python/cp36-cp36m
-	latest_py_dir="${latest_py_dir}m"
-fi
 
 # download and extract pocketsphinx
 if [ ! -f "pocketsphinx-0.1.15.tar.gz" ];
