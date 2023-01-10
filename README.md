@@ -1,5 +1,9 @@
 # pocketsphinx-python-wheels
-A collection of pre-built wheels for PocketSphinx (the [bambocher fork](https://github.com/bambocher/pocketsphinx-python))
+A collection of pre-built wheels for PocketSphinx.
+
+All of the `pocketsphinx-0.1.15...` wheels are built from the [bambocher fork](https://github.com/bambocher/pocketsphinx-python),
+which is now out of date. There is a [currently active fork](https://github.com/cmusphinx/pocketsphinx) but they have released a
+limited number of wheels and only for the x86 architecture. I have compiled as many wheels from the active fork as I can.
 
 
 ### Why is this here?
@@ -7,6 +11,25 @@ When installing PocketSphinx it will often fail (using PIP) as the latest wheels
 So these pre-built wheels serve as a way to install PocketSphinx on newer versions of Python without having to build it yourself. After these are installed, pip can upgrade you to the latest version.
 
 ### Contents
+
+#### Pocketsphinx 5.0.0 (active fork)
+
+| Python Version | aarch64       | i686          | ppc64le       | s390x         | x86_64        |
+|----------------|---------------|---------------|---------------|---------------|---------------|
+| 3.6            | Yes           | Yes           | Yes           | No            | *Official*    |
+| 3.7            | Yes           | Yes           | Yes           | No            | No            |
+| PyPy 3.7       | Yes           | Yes           | No            | No            | Yes           |
+| 3.8            | Yes           | No            | Yes           | No            | *Official*    |
+| PyPy 3.8       | Yes           | Yes           | No            | No            | *Official*    |
+| 3.9            | Yes           | Yes           | Yes           | No            | No            |
+| PyPy 3.9       | Yes           | Yes           | No            | No            | Yes           |
+| 3.10           | Yes           | Yes           | Yes           | No            | *Official*    |
+| 3.11           | Yes           | No            | Yes           | No            | Yes           |
+
+The coverage here is a bit patchy. Any version labelled "*Official*" can be found on the pocketsphinx [PyPI releases page](https://pypi.org/project/pocketsphinx/#files)
+and so are not covered by this repo
+
+#### Pocketsphinx 0.1.15 (bambocher fork)
 
 | Python Version | aarch64       | i686          | ppc64le       | s390x         | x86_64        |
 |----------------|---------------|---------------|---------------|---------------|---------------|

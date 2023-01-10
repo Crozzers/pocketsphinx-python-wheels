@@ -7,57 +7,51 @@
 
 
 # update package lists and install required build tools
-base_packages="swig autoconf automake make pulseaudio tk"
+base_packages="wget swig make pulseaudio tk"
 if [ $(command -v apt --version) ];
 then
 	apt update && apt install libasound2-dev libpulse-dev python3-dev $base_packages -y
 elif [ $(command -v yum --version) ];
 then
-	yum update -y && yum install portaudio-devel pulseaudio-libs-devel python3-devel $base_packages -y
+	yum update -y && yum install epel-release -y && yum install portaudio-devel pulseaudio-libs-devel python3-devel $base_packages -y
 fi
 
 # make build directory
 mkdir pocketsphinx-build -p && cd pocketsphinx-build
 
-# install required building wheels on all python versions and find latest python version
-for py_version in /opt/python/*
-do
-	$py_version/bin/python -m pip install wheel
-done
-
 # download and extract pocketsphinx
-if [ ! -f "pocketsphinx-0.1.15.tar.gz" ];
+if [ ! -f "master.zip" ];
 then
-	if [ -f "../pocketsphinx-0.1.15.tar.gz" ];
+	if [ -f "../master.zip" ];
 	then
-		mv ../pocketsphinx-0.1.15.tar.gz ./
+		mv ../master.zip ./
 	else
-		curl https://files.pythonhosted.org/packages/cd/4a/adea55f189a81aed88efa0b0e1d25628e5ed22622ab9174bf696dd4f9474/pocketsphinx-0.1.15.tar.gz > pocketsphinx-0.1.15.tar.gz
-	fi	
+		wget https://github.com/cmusphinx/pocketsphinx/archive/refs/heads/master.zip
+	fi
 fi
-tar -xvf pocketsphinx-0.1.15.tar.gz
+unzip -o master.zip
 
 # copy to seperate build dirs to allow for building in parallel
 # otherwise auditwheel freaks out
 for py_version in /opt/python/*
 do
+	$py_version/bin/python -m pip install -r pocketsphinx-master/requirements.dev.txt
 	mkdir -p $(basename $py_version)
-	cp -r pocketsphinx-0.1.15/* $(basename $py_version)/
+	cp -r pocketsphinx-master/* $(basename $py_version)/
 done
-rm -r pocketsphinx-0.1.15
 
 # build wheels for each python version in parallel and then wait for each process to complete
 for py_version in /opt/python/*
 do
 	build_dir=$(basename $py_version)
-	(cd $build_dir && $py_version/bin/python setup.py bdist_wheel && cd ..) &
+	(cd $build_dir && $py_version/bin/python -m pip wheel . -v && cd ..) &
 done
 wait
 
 # run auditwheel across all build wheels
 for py_version in /opt/python/*
 do
-	for file in $(basename $py_version)/dist/*
+	for file in $(basename $py_version)/*.whl
 	do
 		# auditwheel comes pre-installed on manylinux dockers
 		auditwheel repair $file
