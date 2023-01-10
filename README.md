@@ -1,5 +1,5 @@
 # pocketsphinx-python-wheels
-A collection of pre-built wheels for PocketSphinx 
+A collection of pre-built wheels for PocketSphinx (the [bambocher fork](https://github.com/bambocher/pocketsphinx-python))
 
 
 ### Why is this here?
