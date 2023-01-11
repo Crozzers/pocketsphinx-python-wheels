@@ -14,7 +14,7 @@ trap cleanup SIGINT;
 
 required_files=(
     "https://raw.githubusercontent.com/Crozzers/pocketsphinx-python-wheels/master/build-manylinux-wheel.sh"
-    "https://github.com/cmusphinx/pocketsphinx/archive/refs/heads/master.zip"
+    "https://github.com/cmusphinx/pocketsphinx/archive/refs/tags/v5.0.0.zip"
 );
 mkdir -p required-files
 for file in "${required_files[@]}"; do

@@ -20,24 +20,24 @@ fi
 mkdir pocketsphinx-build -p && cd pocketsphinx-build
 
 # download and extract pocketsphinx
-if [ ! -f "master.zip" ];
+if [ ! -f "v5.0.0.zip" ];
 then
-	if [ -f "../master.zip" ];
+	if [ -f "../v5.0.0.zip" ];
 	then
-		mv ../master.zip ./
+		mv "../v5.0.0.zip" ./
 	else
-		wget https://github.com/cmusphinx/pocketsphinx/archive/refs/heads/master.zip
+		wget https://github.com/cmusphinx/pocketsphinx/archive/refs/tags/v5.0.0.zip
 	fi
 fi
-unzip -o master.zip
+unzip -o v5.0.0.zip
 
 # copy to seperate build dirs to allow for building in parallel
 # otherwise auditwheel freaks out
 for py_version in /opt/python/*
 do
-	$py_version/bin/python -m pip install -r pocketsphinx-master/requirements.dev.txt
+	$py_version/bin/python -m pip install -r pocketsphinx-5.0.0/requirements.dev.txt
 	mkdir -p $(basename $py_version)
-	cp -r pocketsphinx-master/* $(basename $py_version)/
+	cp -r pocketsphinx-5.0.0/* $(basename $py_version)/
 done
 
 # build wheels for each python version in parallel and then wait for each process to complete
