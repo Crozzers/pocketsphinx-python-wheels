@@ -17,14 +17,14 @@ So these pre-built wheels serve as a way to install PocketSphinx on newer versio
 | Python Version | aarch64       | i686          | ppc64le       | s390x         | x86_64        |
 |----------------|---------------|---------------|---------------|---------------|---------------|
 | 3.6            | Yes           | Yes           | Yes           | No            | *Official*    |
-| 3.7            | Yes           | Yes           | Yes           | No            | No            |
+| 3.7            | Yes           | Yes           | Yes           | No            | Yes           |
 | PyPy 3.7       | Yes           | Yes           | No            | No            | Yes           |
-| 3.8            | Yes           | No            | Yes           | No            | *Official*    |
+| 3.8            | Yes           | Yes           | Yes           | No            | *Official*    |
 | PyPy 3.8       | Yes           | Yes           | No            | No            | *Official*    |
-| 3.9            | Yes           | Yes           | Yes           | No            | No            |
+| 3.9            | Yes           | Yes           | Yes           | No            | Yes           |
 | PyPy 3.9       | Yes           | Yes           | No            | No            | Yes           |
 | 3.10           | Yes           | Yes           | Yes           | No            | *Official*    |
-| 3.11           | Yes           | No            | Yes           | No            | Yes           |
+| 3.11           | Yes           | Yes           | Yes           | No            | Yes           |
 
 The coverage here is a bit patchy. Any version labelled "*Official*" can be found on the pocketsphinx [PyPI releases page](https://pypi.org/project/pocketsphinx/#files)
 and so are not covered by this repo
